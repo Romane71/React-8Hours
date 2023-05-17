@@ -1,22 +1,20 @@
 import "./App.css";
+import { User } from "./User";
 
 function App() {
+  const users = [
+    { name: "Romane", age: 21 },
+    { name: "Jake", age: 32 },
+    { name: "Alina", age: 25 },
+  ];
+
   return (
     <div className="App">
-      <Job salary={90000} position="Senior SDE" company="Amazon" />
-      <Job salary={120000} position="Junior SDE" company="Google" />
-      <Job salary={150000} position="Project Manager" company="Netflix" />
+      {users.map((user, key) => {
+        return <User name={user.name} age={user.age} />;
+      })}
     </div>
   );
 }
-const Job = (props) => {
-  return (
-    <div>
-      <h1>{props.salary}</h1>
-      <h1>{props.position}</h1>
-      <h1>{props.company}</h1>
-    </div>
-  );
-};
 
 export default App;
