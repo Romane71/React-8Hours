@@ -1,20 +1,19 @@
 import "./App.css";
-import { User } from "./User";
+// import { User } from "./User";
+import { useState } from "react";
 
 function App() {
-  const users = [
-    { name: "Romane", age: 21 },
-    { name: "Jake", age: 32 },
-    { name: "Alina", age: 25 },
-  ];
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
   return (
     <div className="App">
-      {users.map((user, key) => {
-        return <User name={user.name} age={user.age} />;
-      })}
+      <input type="text" onChange={handleInputChange} />
+      {inputValue}
     </div>
   );
 }
-
 export default App;
