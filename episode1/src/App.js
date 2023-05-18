@@ -3,16 +3,18 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  const [textColor, setTextColor] = useState(false);
 
   return (
     <div className="App">
-      <input type="text" onChange={handleInputChange} />
-      {inputValue}
+      <button
+        onClick={() => {
+          setTextColor(textColor === "black" ? "red" : "black");
+        }}
+      >
+        Show/Hide
+      </button>
+      <h1 style={{ color: textColor }}>Hi my name is Romane</h1>
     </div>
   );
 }
